@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aquamarine;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button {
+  background-color: white;
+  color: black;
+}
+
+.usersFoundList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: olive dashed;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  border: orange dashed;
+}
+
+.container p {
+  text-align: center;
+}
