@@ -2,9 +2,9 @@ import { dbService } from "mybase";
 import React, { useState } from "react";
 import { useUserProfileList } from "utils/firestore";
 
-const Home = ({ userObj }) => {
+const Home = () => {
   const [info, setInfo] = useState("");
-  const [data, setSmallProfileList] = useUserProfileList(userObj);
+  const [data, setSmallProfileList] = useUserProfileList();
   const onChange = (event) => {
     const {
       target: { value },

@@ -1,13 +1,14 @@
-import React from "react";
-import { deleteFriend, requestFriend, useCheckFriend } from "utils/firestore";
+import React, { useContext } from "react";
+import { deleteFriend, requestFriend, useCheckFriend, UserIdContext } from "utils/firestore";
 
-const FriendButton = ({ userId, otherId }) => {
-  const isFriend = useCheckFriend(userId, otherId);
+const FriendButton = ({ otherId }) => {
+  const userContext = useContext(UserIdContext)
+  const isFriend = useCheckFriend(userContext.userId, otherId);
   const onClick = () => {
     if (isFriend) {
-      deleteFriend(userId, otherId);
+      deleteFriend(userContext.userId, otherId);
     } else {
-      requestFriend(userId, otherId);
+      requestFriend(userContext.userId, otherId);
     }
   };
 

@@ -1,8 +1,10 @@
 import { authService } from "mybase";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { UserIdContext } from "utils/firestore";
 
-const Navigation = ({ userObj, setIsLoggedIn }) => {
+const Navigation = ({ setIsLoggedIn }) => {
+  const userContext = useContext(UserIdContext);
   const history = useHistory();
   const onClick = () => {
     authService.signOut();
@@ -17,7 +19,7 @@ const Navigation = ({ userObj, setIsLoggedIn }) => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/myprofile">{userObj.userName}</Link>
+          <Link to="/myprofile">{userContext.userName}</Link>
         </li>
         <li>
           <button onClick={onClick}>Sign out</button>

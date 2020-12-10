@@ -1,10 +1,11 @@
 import { dbService } from "mybase";
-import React, { useEffect, useState } from "react";
-import { updateMyProfile } from "utils/firestore";
+import React, { useContext, useEffect, useState } from "react";
+import { updateMyProfile, UserIdContext } from "utils/firestore";
 
-const ProfileForm = ({ userObj, refreshUser }) => {
-  const [newDisplayName, setNewDisplayName] = useState(userObj.userName);
-  const [newUnitName, setNewUnitName] = useState("");
+const ProfileForm = ({ refreshUser }) => {
+  const userContext = useContext(UserIdContext);
+  const [newDisplayName, setNewDisplayName] = useState(userContext.userName);
+  const [newUnitName, setNewUnitName] = useState(userContext.unit);
 
   const onChange = (event) => {
     const {
@@ -19,16 +20,16 @@ const ProfileForm = ({ userObj, refreshUser }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if (userObj.userName !== newDisplayName) {
-      await userObj.updateProfile({ displayName: newDisplayName });
-      refreshUser();
+    if (userContext.userName !== newDisplayName) {
+      // await userObj.updateProfile({ displayName: newDisplayName });
+      // refreshUser();
     }
-    updateMyProfile(userObj.uid, userObj.userName, newUnitName);
+    updateMyProfile(userContext.userId, userContext.userName, newUnitName);
   };
 
   useEffect(() => {
     const unSubscribe = dbService
-      .doc(`profile/${userObj.uid}`)
+      .doc(`profile/${userContext.userId}`)
       .onSnapshot((snapShot) => {
         setNewUnitName(snapShot.data()?.unit);
       });

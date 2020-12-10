@@ -1,12 +1,15 @@
 import FriendButton from "components/FriendButton";
+import SmallProfile from "components/SmallProfile";
 import { dbService } from "mybase";
-import React, { useEffect, useState } from "react";
-import { useUserProfileList } from "utils/firestore";
+import React, { useContext, useEffect, useState } from "react";
+import { UserIdContext, useUserProfileList } from "utils/firestore";
 
 // myprofile + otherprofile => ?
-const OtherProfile = ({ match, userObj }) => {
+const OtherProfile = ({ match }) => {
   const [userData, setUserData] = useState(null);
-  const [data, setSmallProfileList] = useUserProfileList(userObj);
+  // const [data, setSmallProfileList] = useUserProfileList(userObj);
+  const userContext = useContext(UserIdContext);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const getUserData = async () => {
@@ -27,10 +30,17 @@ const OtherProfile = ({ match, userObj }) => {
         dbService.doc(`profile/${snapshot.data().receiverId}`).get()
       );
       const values = await Promise.all(promiseArray);
-      setSmallProfileList(values);
+      // setSmallProfileList(values);
+      setData(
+        values.map((docSnap) => (
+          <li key={docSnap.data().userId}>
+            <SmallProfile otherData={docSnap.data()} />
+          </li>
+        ))
+      );
     };
     if (userData) getFriends();
-  }, [userData, setSmallProfileList]);
+  }, [userData]);
 
   return (
     <div className="container">
@@ -38,9 +48,7 @@ const OtherProfile = ({ match, userObj }) => {
       <p>{userData?.unit}</p>
       <p>list of friends</p>
       <ul>{data}</ul>
-      {userData && (
-        <FriendButton userId={userObj.userId} otherId={userData.userId} />
-      )}
+      {userData && <FriendButton otherId={userData.userId} />}
     </div>
   );
 };

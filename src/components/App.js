@@ -1,13 +1,14 @@
 import { authService, dbService } from "mybase";
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { UserIdContext } from "utils/firestore";
 import AppRouter from "./AppRouter";
 
 function App() {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [userId, setUserId] = useState(null);
+
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
@@ -43,11 +44,12 @@ function App() {
     });
   };
 
+  const userContext = createContext(null);
+
   return (
-    <>
+    <UserIdContext.Provider value={userObj}>
       {init ? (
         <AppRouter
-          userObj={userObj}
           isLoggedIn={isLoggedIn}
           refreshUser={refreshUser}
           setIsLoggedIn={setIsLoggedIn}
@@ -55,7 +57,7 @@ function App() {
       ) : (
         <h1>initializing...</h1>
       )}
-    </>
+    </UserIdContext.Provider>
   );
 }
 

@@ -1,7 +1,8 @@
 import SmallProfile from "components/SmallProfile";
 import { dbService } from "mybase";
 
-const { useState, useEffect } = require("react");
+const { useState, useEffect, createContext } = require("react");
+export const UserIdContext = createContext({});
 
 const useCheckFriend = (userId, otherId) => {
   const [isFriend, setIsFriend] = useState(false);
@@ -22,13 +23,13 @@ const useCheckFriend = (userId, otherId) => {
   return isFriend;
 };
 
-const useUserProfileList = (userObj) => {
+const useUserProfileList = () => {
   const [data, setData] = useState([]);
   const setSmallProfiles = (snapshotArray) => {
     setData(
       snapshotArray.map((docSnap) => (
         <li key={docSnap.data().userId}>
-          <SmallProfile userObj={userObj} otherData={docSnap.data()} />
+          <SmallProfile otherData={docSnap.data()} />
         </li>
       ))
     );

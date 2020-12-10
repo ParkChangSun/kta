@@ -1,28 +1,38 @@
 import ProfileForm from "components/ProfileForm";
 import { dbService } from "mybase";
-import React, { useEffect } from "react";
-import { useUserProfileList } from "utils/firestore";
+import React, { useContext, useEffect, useState } from "react";
+import { UserIdContext, useUserProfileList } from "utils/firestore";
+import SmallProfile from "components/SmallProfile";
 
-const MyProfile = ({ userObj, refreshUser }) => {
-  const [data, setSmallProfileList] = useUserProfileList(userObj);
+const MyProfile = ({ refreshUser }) => {
+  const userContext = useContext(UserIdContext);
+  const [data, setData] = useState([]);
+  console.log(userContext);
+  // const [data, setSmallProfileList] = useUserProfileList(userObj);
   useEffect(() => {
     const getFriends = async () => {
       const query = await dbService
         .collection("relationship")
-        .where("requestorId", "==", userObj.userId)
+        .where("requestorId", "==", userContext.userId)
         .get();
       const promiseArray = query.docs.map((doc) =>
         dbService.doc(`profile/${doc.data().receiverId}`).get()
       );
       const values = await Promise.all(promiseArray);
-      setSmallProfileList(values);
+      setData(
+        values.map((docSnap) => (
+          <li key={docSnap.data().userId}>
+            <SmallProfile otherData={docSnap.data()} />
+          </li>
+        ))
+      );
     };
     getFriends();
   }, []);
 
   return (
     <div className="container">
-      <ProfileForm userObj={userObj} refreshUser={refreshUser} />
+      <ProfileForm refreshUser={refreshUser} />
       <p>friends</p>
       <ul>{data}</ul>
     </div>

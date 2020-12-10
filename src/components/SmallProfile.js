@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserIdContext } from "utils/firestore";
 import FriendButton from "./FriendButton";
 
-const SmallProfile = ({ userObj, otherData }) => {
+const SmallProfile = ({ otherData }) => {
+  const contextUserId = useContext(UserIdContext);
+  console.log(contextUserId);
   return (
     <>
       <h2>{otherData.userName}</h2>
       <p>{otherData.unit}</p>
       <Link to={`/profile/${otherData.userId}`}>see profile</Link>
-      <FriendButton userId={userObj.userId} otherId={otherData.userId} />
+      <FriendButton otherId={otherData.userId} />
     </>
   );
 };
