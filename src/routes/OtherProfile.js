@@ -33,7 +33,7 @@ const OtherProfile = ({ match, userObj }) => {
   }, [userData, setSmallProfileList]);
 
   return (
-    <>
+    <div className="container">
       <p>{userData?.userName}'s profile</p>
       <p>{userData?.unit}</p>
       <p>list of friends</p>
@@ -41,7 +41,7 @@ const OtherProfile = ({ match, userObj }) => {
       {userData && (
         <FriendButton userId={userObj.userId} otherId={userData.userId} />
       )}
-    </>
+    </div>
   );
 };
 

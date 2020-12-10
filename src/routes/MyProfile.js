@@ -21,11 +21,11 @@ const MyProfile = ({ userObj, refreshUser }) => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <ProfileForm userObj={userObj} refreshUser={refreshUser} />
       <p>friends</p>
       <ul>{data}</ul>
-    </>
+    </div>
   );
 };
 

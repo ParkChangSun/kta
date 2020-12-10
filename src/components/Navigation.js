@@ -12,7 +12,7 @@ const Navigation = ({ userObj, setIsLoggedIn }) => {
 
   return (
     <nav>
-      <ul>
+      <ul className="navigation">
         <li>
           <Link to="/">Home</Link>
         </li>

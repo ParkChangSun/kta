@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
-}
-
-body {
-  background-color: aquamarine;
+  padding: 0;
 }
 
 li {
@@ -18,11 +15,26 @@ button {
   color: black;
 }
 
+nav {
+  background-color: paleturquoise;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .usersFoundList {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: olive dashed;
 }
 
 a {
@@ -30,7 +42,6 @@ a {
 }
 
 .container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +51,6 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  border: orange dashed;
 }
 
 .container p {
