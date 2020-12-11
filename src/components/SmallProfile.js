@@ -5,7 +5,6 @@ import FriendButton from "./FriendButton";
 
 const SmallProfile = ({ otherData }) => {
   const contextUserId = useContext(UserIdContext);
-  console.log(contextUserId);
   return (
     <>
       <h2>{otherData.userName}</h2>

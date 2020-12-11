@@ -2,7 +2,7 @@ import { dbService } from "mybase";
 import React, { useContext, useEffect, useState } from "react";
 import { updateMyProfile, UserIdContext } from "utils/firestore";
 
-const ProfileForm = ({ refreshUser }) => {
+const ProfileForm = () => {
   const userContext = useContext(UserIdContext);
   const [newDisplayName, setNewDisplayName] = useState(userContext.userName);
   const [newUnitName, setNewUnitName] = useState(userContext.unit);
@@ -20,10 +20,6 @@ const ProfileForm = ({ refreshUser }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if (userContext.userName !== newDisplayName) {
-      // await userObj.updateProfile({ displayName: newDisplayName });
-      // refreshUser();
-    }
     updateMyProfile(userContext.userId, userContext.userName, newUnitName);
   };
 
@@ -34,7 +30,7 @@ const ProfileForm = ({ refreshUser }) => {
         setNewUnitName(snapShot.data()?.unit);
       });
     return unSubscribe;
-  }, []);
+  }, [userContext]);
 
   return (
     <form onSubmit={onSubmit}>

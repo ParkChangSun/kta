@@ -1,10 +1,10 @@
 import { dbService } from "mybase";
 import React, { useState } from "react";
-import { useUserProfileList } from "utils/firestore";
+import { useSearchedList } from "utils/firestore";
 
 const Home = () => {
   const [info, setInfo] = useState("");
-  const [data, setSmallProfileList] = useUserProfileList();
+  const [data, setSmallProfileList] = useSearchedList();
   const onChange = (event) => {
     const {
       target: { value },

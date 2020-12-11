@@ -44,8 +44,6 @@ function App() {
     });
   };
 
-  const userContext = createContext(null);
-
   return (
     <UserIdContext.Provider value={userObj}>
       {init ? (

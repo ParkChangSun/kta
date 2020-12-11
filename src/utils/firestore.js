@@ -23,7 +23,7 @@ const useCheckFriend = (userId, otherId) => {
   return isFriend;
 };
 
-const useUserProfileList = () => {
+const useSearchedList = () => {
   const [data, setData] = useState([]);
   const setSmallProfiles = (snapshotArray) => {
     setData(
@@ -35,6 +35,31 @@ const useUserProfileList = () => {
     );
   };
   return [data, setSmallProfiles];
+};
+
+const useFriendsList = (targetId) => {
+  const [friends, setFriends] = useState([]);
+  useEffect(() => {
+    const getFriends = async () => {
+      const query = await dbService
+        .collection("relationship")
+        .where("requestorId", "==", targetId)
+        .get();
+      const promiseArray = query.docs.map((doc) =>
+        dbService.doc(`profile/${doc.data().receiverId}`).get()
+      );
+      const values = await Promise.all(promiseArray);
+      setFriends(
+        values.map((docSnap) => (
+          <li key={docSnap.data().userId}>
+            <SmallProfile otherData={docSnap.data()} />
+          </li>
+        ))
+      );
+    };
+    if (targetId) getFriends();
+  }, [targetId]);
+  return friends;
 };
 
 const requestFriend = async (requestorId, receiverId) => {
@@ -66,7 +91,8 @@ const updateMyProfile = async (userId, userName, newUnitName) => {
 
 export {
   useCheckFriend,
-  useUserProfileList,
+  useSearchedList,
+  useFriendsList,
   requestFriend,
   deleteFriend,
   updateMyProfile,
