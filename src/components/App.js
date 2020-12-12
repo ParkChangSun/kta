@@ -1,5 +1,5 @@
 import { authService, dbService } from "mybase";
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { UserIdContext } from "utils/firestore";
 import AppRouter from "./AppRouter";
 
@@ -31,27 +31,14 @@ function App() {
       return unSubscribe;
     } else {
       console.log("userid is null");
+      setInit(true);
     }
   }, [userId]);
-
-  // need to fix this
-  const refreshUser = () => {
-    const user = authService.currentUser;
-    setUserObj({
-      uid: user.uid,
-      displayName: user.displayName,
-      updateProfile: (args) => user.updateProfile(args),
-    });
-  };
 
   return (
     <UserIdContext.Provider value={userObj}>
       {init ? (
-        <AppRouter
-          isLoggedIn={isLoggedIn}
-          refreshUser={refreshUser}
-          setIsLoggedIn={setIsLoggedIn}
-        />
+        <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       ) : (
         <h1>initializing...</h1>
       )}

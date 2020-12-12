@@ -4,12 +4,12 @@ Make community with battle buddies!
 
 ## Todo List
 
-- useContext to user object
-- fix user initializing and refreshuser
-- remove setSmallProfileList from deps of useeffect(otherprofile.js and firestore.js)
-- ProfileForm : get information from firebase
-- more refactoring
-- more css
+- [x] useContext to user object
+- [x] fix user initializing and refresher
+- [x] remove setSmallProfileList from deps of useeffect(otherprofile.js and firestore.js)
+- [x] ProfileForm : get information from firebase
+- [ ] more refactoring
+- [ ] more css
 
 ## License
 

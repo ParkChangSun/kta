@@ -3,7 +3,7 @@ import React from "react";
 
 const Auth = () => {
   const provider = new firebaseInstance.auth.GoogleAuthProvider();
-  const onClick = async (event) => {
+  const onClick = async () => {
     const credential = await authService.signInWithPopup(provider);
     const userRef = dbService.doc(`profile/${credential.user.uid}`);
     const userSnap = await userRef.get();
@@ -18,10 +18,10 @@ const Auth = () => {
   };
 
   return (
-    <>
+    <div className="auth">
       <p>Sign in</p>
       <button onClick={onClick}>Google</button>
-    </>
+    </div>
   );
 };
 

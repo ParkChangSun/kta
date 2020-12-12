@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+p {
+  margin: 0;
+}
+
 li {
   list-style: none;
   display: flex;
@@ -10,9 +14,11 @@ li {
   justify-content: center;
 }
 
-button {
-  background-color: white;
-  color: black;
+li:nth-child(odd) {
+  background-color: burlywood;
+}
+li:nth-child(even) {
+  background-color: beige;
 }
 
 nav {
@@ -29,6 +35,8 @@ form {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 2rem;
+  text-align: center;
 }
 
 .usersFoundList {
@@ -41,10 +49,18 @@ a {
   text-decoration: none;
 }
 
+.smallprofile {
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: plum;
 }
 
 .searchForm {
@@ -55,4 +71,18 @@ a {
 
 .container p {
   text-align: center;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth button {
+  display: inline;
 }

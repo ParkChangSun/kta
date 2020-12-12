@@ -2,7 +2,6 @@ import SmallProfile from "components/SmallProfile";
 import { dbService } from "mybase";
 
 const { useState, useEffect, createContext } = require("react");
-export const UserIdContext = createContext({});
 
 const useCheckFriend = (userId, otherId) => {
   const [isFriend, setIsFriend] = useState(false);
@@ -97,3 +96,4 @@ export {
   deleteFriend,
   updateMyProfile,
 };
+export const UserIdContext = createContext({});

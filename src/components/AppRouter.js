@@ -7,21 +7,17 @@ import MyProfile from "routes/MyProfile";
 import OtherProfile from "routes/OtherProfile";
 import NotFound from "routes/NotFound";
 
-const AppRouter = ({ isLoggedIn, refreshUser, setIsLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <BrowserRouter>
-      {isLoggedIn ? (
-        <Navigation setIsLoggedIn={setIsLoggedIn} />
-      ) : (
-        <h1>Welcome to kta</h1>
-      )}
+      {isLoggedIn && <Navigation setIsLoggedIn={setIsLoggedIn} />}
       {isLoggedIn ? (
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/myprofile">
-            <MyProfile refreshUser={refreshUser} />
+            <MyProfile />
           </Route>
           <Route
             path="/profile/:userId"
