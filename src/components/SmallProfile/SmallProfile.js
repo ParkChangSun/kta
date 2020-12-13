@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FriendButton from "./FriendButton";
+import FriendButton from "../FriendButton/FriendButton";
+import "./SmallProfile.css";
 
 const SmallProfile = ({ otherData }) => {
   return (
-    <div className="smallprofile">
+    <li key={otherData.userId} className="smallprofile">
       <p>{otherData.userName}</p>
       <p>{otherData.unit}</p>
       <Link to={`/profile/${otherData.userId}`}>see profile</Link>
       <FriendButton otherId={otherData.userId} />
-    </div>
+    </li>
   );
 };
 

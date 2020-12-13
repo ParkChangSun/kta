@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import Auth from "routes/Auth";
-import Home from "routes/Home";
-import Navigation from "components/Navigation";
-import MyProfile from "routes/MyProfile";
-import OtherProfile from "routes/OtherProfile";
-import NotFound from "routes/NotFound";
+import Auth from "routes/Auth/Auth";
+import Home from "routes/Home/Home";
+import Navigation from "components/Navigation/Navigation";
+import MyProfile from "routes/MyProfile/MyProfile";
+import OtherProfile from "routes/OtherProfile/OtherProfile";
+import NotFound from "routes/NotFound/NotFound";
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (

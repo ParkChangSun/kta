@@ -1,4 +1,4 @@
-import SmallProfile from "components/SmallProfile";
+import SmallProfile from "components/SmallProfile/SmallProfile";
 import { dbService } from "mybase";
 
 const { useState, useEffect, createContext } = require("react");
@@ -27,9 +27,7 @@ const useSearchedList = () => {
   const setSmallProfiles = (snapshotArray) => {
     setData(
       snapshotArray.map((docSnap) => (
-        <li key={docSnap.data().userId}>
-          <SmallProfile otherData={docSnap.data()} />
-        </li>
+        <SmallProfile otherData={docSnap.data()} />
       ))
     );
   };

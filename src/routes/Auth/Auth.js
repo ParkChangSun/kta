@@ -1,5 +1,6 @@
 import { authService, dbService, firebaseInstance } from "mybase";
 import React from "react";
+import "./Auth.css";
 
 const Auth = () => {
   const provider = new firebaseInstance.auth.GoogleAuthProvider();

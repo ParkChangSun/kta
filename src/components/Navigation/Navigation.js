@@ -2,6 +2,7 @@ import { authService } from "mybase";
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserIdContext } from "utils/firestore";
+import "./Navigation.css";
 
 const Navigation = ({ setIsLoggedIn }) => {
   const userContext = useContext(UserIdContext);
@@ -13,8 +14,8 @@ const Navigation = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <nav>
-      <ul className="navigation">
+    <nav className="navigation">
+      <ul>
         <li>
           <Link to="/">Home</Link>
         </li>

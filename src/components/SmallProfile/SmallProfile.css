@@ -1,0 +1,22 @@
+.smallprofile {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.smallprofile:nth-child(even) {
+  background-color: lightcoral;
+}
+
+.smallprofile:nth-child(odd) {
+  background-color: lightgoldenrodyellow;
+}
+
+.smallprofile a {
+  text-decoration: none;
+}
+
+.smallprofile p {
+  margin: 0;
+}

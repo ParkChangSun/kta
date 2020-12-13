@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
-import { deleteFriend, requestFriend, useCheckFriend, UserIdContext } from "utils/firestore";
+import {
+  deleteFriend,
+  requestFriend,
+  useCheckFriend,
+  UserIdContext,
+} from "utils/firestore";
+import "./FriendButton.css";
 
 const FriendButton = ({ otherId }) => {
-  const userContext = useContext(UserIdContext)
+  const userContext = useContext(UserIdContext);
   const isFriend = useCheckFriend(userContext.userId, otherId);
   const onClick = () => {
     if (isFriend) {
@@ -13,9 +19,13 @@ const FriendButton = ({ otherId }) => {
   };
 
   return isFriend ? (
-    <button onClick={onClick}>delete friend</button>
+    <button onClick={onClick} className="friendbutton">
+      delete friend
+    </button>
   ) : (
-    <button onClick={onClick}>add friend</button>
+    <button onClick={onClick} className="friendbutton">
+      add friend
+    </button>
   );
 };
 

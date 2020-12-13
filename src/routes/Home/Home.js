@@ -1,6 +1,7 @@
 import { dbService } from "mybase";
 import React, { useState } from "react";
 import { useSearchedList } from "utils/firestore";
+import "./Home.css";
 
 const Home = () => {
   const [info, setInfo] = useState("");
@@ -21,13 +22,13 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
+    <div className="home">
       <p>home look for someone</p>
       <form onSubmit={onSubmit} className="searchForm">
         <input type="text" placeholder="type info here" onChange={onChange} />
         <input type="submit" value="search" />
       </form>
-      <ul className="usersFoundList">{data}</ul>
+      <ul className="usersfoundlist">{data}</ul>
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  background-color: lightblue;
+}
+
+.usersfoundlist {
+  padding: 0;
+  width: 90%;
+  list-style: none;
+}
