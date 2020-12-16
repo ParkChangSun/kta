@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ParkChangSun/kta/static/css/main.9ec51733.chunk.css",
+    "main.js": "/ParkChangSun/kta/static/js/main.84815a84.chunk.js",
+    "main.js.map": "/ParkChangSun/kta/static/js/main.84815a84.chunk.js.map",
+    "runtime-main.js": "/ParkChangSun/kta/static/js/runtime-main.c5e3b659.js",
+    "runtime-main.js.map": "/ParkChangSun/kta/static/js/runtime-main.c5e3b659.js.map",
+    "static/js/2.48aae2ce.chunk.js": "/ParkChangSun/kta/static/js/2.48aae2ce.chunk.js",
+    "static/js/2.48aae2ce.chunk.js.map": "/ParkChangSun/kta/static/js/2.48aae2ce.chunk.js.map",
+    "index.html": "/ParkChangSun/kta/index.html",
+    "static/css/main.9ec51733.chunk.css.map": "/ParkChangSun/kta/static/css/main.9ec51733.chunk.css.map",
+    "static/js/2.48aae2ce.chunk.js.LICENSE.txt": "/ParkChangSun/kta/static/js/2.48aae2ce.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5e3b659.js",
+    "static/js/2.48aae2ce.chunk.js",
+    "static/css/main.9ec51733.chunk.css",
+    "static/js/main.84815a84.chunk.js"
+  ]
+}
