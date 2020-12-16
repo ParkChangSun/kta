@@ -6,6 +6,7 @@ import Navigation from "components/Navigation/Navigation";
 import MyProfile from "routes/MyProfile/MyProfile";
 import OtherProfile from "routes/OtherProfile/OtherProfile";
 import NotFound from "routes/NotFound/NotFound";
+import Footer from "./Footer";
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
@@ -33,6 +34,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
           <Redirect from="*" to="/" />
         </Switch>
       )}
+      <Footer />
     </BrowserRouter>
   );
 };

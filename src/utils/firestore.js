@@ -5,6 +5,7 @@ const { useState, useEffect, createContext } = require("react");
 
 const useCheckFriend = (userId, otherId) => {
   const [isFriend, setIsFriend] = useState(false);
+  const [isMyself, setIsMyself] = useState(false);
   useEffect(() => {
     const checkIsFriend = () => {
       const unSubscribe = dbService
@@ -16,10 +17,13 @@ const useCheckFriend = (userId, otherId) => {
         });
       return unSubscribe;
     };
+    if (userId === otherId) {
+      setIsMyself(true);
+    }
     const unSubscribe = checkIsFriend();
     return unSubscribe;
   }, [userId, otherId]);
-  return isFriend;
+  return [isFriend, isMyself];
 };
 
 const useSearchedList = () => {
@@ -27,7 +31,7 @@ const useSearchedList = () => {
   const setSmallProfiles = (snapshotArray) => {
     setData(
       snapshotArray.map((docSnap) => (
-        <SmallProfile otherData={docSnap.data()} />
+        <SmallProfile key={docSnap.data().userId} otherData={docSnap.data()} />
       ))
     );
   };
@@ -48,9 +52,10 @@ const useFriendsList = (targetId) => {
       const values = await Promise.all(promiseArray);
       setFriends(
         values.map((docSnap) => (
-          <li key={docSnap.data().userId}>
-            <SmallProfile otherData={docSnap.data()} />
-          </li>
+          <SmallProfile
+            key={docSnap.data().userId}
+            otherData={docSnap.data()}
+          />
         ))
       );
     };

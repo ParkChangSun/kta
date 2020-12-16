@@ -5,7 +5,7 @@ import "./SmallProfile.css";
 
 const SmallProfile = ({ otherData }) => {
   return (
-    <li key={otherData.userId} className="smallprofile">
+    <li className="smallprofile">
       <p>{otherData.userName}</p>
       <p>{otherData.unit}</p>
       <Link to={`/profile/${otherData.userId}`}>see profile</Link>

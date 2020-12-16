@@ -23,9 +23,13 @@ const Home = () => {
 
   return (
     <div className="home">
-      <p>home look for someone</p>
+      <p>are you looking for someone?</p>
       <form onSubmit={onSubmit} className="searchForm">
-        <input type="text" placeholder="type info here" onChange={onChange} />
+        <input
+          type="text"
+          placeholder="type name here..."
+          onChange={onChange}
+        />
         <input type="submit" value="search" />
       </form>
       <ul className="usersfoundlist">{data}</ul>

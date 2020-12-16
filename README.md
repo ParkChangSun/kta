@@ -4,13 +4,13 @@ Make community with battle buddies!
 
 ## Todo List
 
-- [ ] seperate css
+- [x] seperate css
 - [ ] seperate utils to hooks and services
 - [ ] merge otherprofile and myprofile(?)
-- [ ] remove 'add friend'button if it is current user
-- [ ] decorate with text
+- [x] remove 'add friend'button if it is current user
+- [x] decorate with text
 - [ ] loading component
-- [ ] footer
+- [x] footer
 - [ ] more refactoring
 - [ ] more css
 - [x] useContext to user object

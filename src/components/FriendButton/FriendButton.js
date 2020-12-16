@@ -9,7 +9,7 @@ import "./FriendButton.css";
 
 const FriendButton = ({ otherId }) => {
   const userContext = useContext(UserIdContext);
-  const isFriend = useCheckFriend(userContext.userId, otherId);
+  const [isFriend, isMyself] = useCheckFriend(userContext.userId, otherId);
   const onClick = () => {
     if (isFriend) {
       deleteFriend(userContext.userId, otherId);
@@ -18,13 +18,11 @@ const FriendButton = ({ otherId }) => {
     }
   };
 
-  return isFriend ? (
-    <button onClick={onClick} className="friendbutton">
-      delete friend
-    </button>
+  return isMyself ? (
+    <button className="friendbutton">it's you!</button>
   ) : (
     <button onClick={onClick} className="friendbutton">
-      add friend
+      {isFriend ? "delete friend" : "add friend"}
     </button>
   );
 };

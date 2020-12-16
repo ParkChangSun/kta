@@ -1,0 +1,10 @@
+.footer {
+  background-color: black;
+  color: white;
+  width: 90%;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+}
