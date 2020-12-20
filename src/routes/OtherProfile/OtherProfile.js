@@ -1,7 +1,7 @@
 import FriendButton from "components/FriendButton/FriendButton";
+import { useFriendsList } from "hooks";
 import { dbService } from "mybase";
 import React, { useEffect, useState } from "react";
-import { useFriendsList } from "utils/firestore";
 import "./OtherProfile.css";
 
 // myprofile + otherprofile => ?

@@ -1,10 +1,6 @@
+import { useCheckFriend } from "hooks";
 import React, { useContext } from "react";
-import {
-  deleteFriend,
-  requestFriend,
-  useCheckFriend,
-  UserIdContext,
-} from "utils/firestore";
+import { deleteFriend, requestFriend, UserIdContext } from "services/firestore";
 import "./FriendButton.css";
 
 const FriendButton = ({ otherId }) => {

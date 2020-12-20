@@ -6,11 +6,11 @@ import Navigation from "components/Navigation/Navigation";
 import MyProfile from "routes/MyProfile/MyProfile";
 import OtherProfile from "routes/OtherProfile/OtherProfile";
 import NotFound from "routes/NotFound/NotFound";
-import Footer from "./Footer";
+import Footer from "components/Footer/Footer";
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {isLoggedIn && <Navigation setIsLoggedIn={setIsLoggedIn} />}
       {isLoggedIn ? (
         <Switch>

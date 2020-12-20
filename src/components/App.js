@@ -1,7 +1,8 @@
 import { authService, dbService } from "mybase";
 import React, { useEffect, useState } from "react";
-import { UserIdContext } from "utils/firestore";
+import { UserIdContext } from "services/firestore";
 import AppRouter from "./AppRouter";
+import Loading from "./Loading/Loading";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -40,7 +41,7 @@ function App() {
       {init ? (
         <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       ) : (
-        <h1>initializing...</h1>
+        <Loading />
       )}
     </UserIdContext.Provider>
   );

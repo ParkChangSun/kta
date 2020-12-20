@@ -1,7 +1,7 @@
 import { authService } from "mybase";
 import React, { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { UserIdContext } from "utils/firestore";
+import { UserIdContext } from "services/firestore";
 import "./Navigation.css";
 
 const Navigation = ({ setIsLoggedIn }) => {

@@ -1,6 +1,6 @@
+import { useSearchedList } from "hooks";
 import { dbService } from "mybase";
 import React, { useState } from "react";
-import { useSearchedList } from "utils/firestore";
 import "./Home.css";
 
 const Home = () => {

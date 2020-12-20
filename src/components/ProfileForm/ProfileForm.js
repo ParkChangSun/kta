@@ -1,6 +1,6 @@
 import { dbService } from "mybase";
 import React, { useContext, useEffect, useState } from "react";
-import { updateMyProfile, UserIdContext } from "utils/firestore";
+import { updateMyProfile, UserIdContext } from "services/firestore";
 
 const ProfileForm = () => {
   const userContext = useContext(UserIdContext);

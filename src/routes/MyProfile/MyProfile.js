@@ -1,6 +1,7 @@
 import ProfileForm from "components/ProfileForm/ProfileForm";
+import { useFriendsList } from "hooks";
 import React, { useContext } from "react";
-import { useFriendsList, UserIdContext } from "utils/firestore";
+import { UserIdContext } from "services/firestore";
 import "./MyProfile.css";
 
 const MyProfile = () => {
