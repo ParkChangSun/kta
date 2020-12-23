@@ -7,6 +7,7 @@ import MyProfile from "routes/MyProfile/MyProfile";
 import OtherProfile from "routes/OtherProfile/OtherProfile";
 import NotFound from "routes/NotFound/NotFound";
 import Footer from "components/Footer/Footer";
+import OpenChat from "routes/OpenChat/OpenChat";
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
@@ -24,6 +25,9 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
             path="/profile/:userId"
             render={(props) => <OtherProfile {...props} />}
           />
+          <Route path="/openchat">
+            <OpenChat />
+          </Route>
           <Route component={NotFound} />
         </Switch>
       ) : (

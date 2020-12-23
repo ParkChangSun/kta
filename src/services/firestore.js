@@ -19,11 +19,9 @@ const deleteFriend = async (requestorId, receiverId) => {
   relationSnap.docs[0].ref.delete();
 };
 
-const updateMyProfile = async (userId, userName, newUnitName) => {
-  await dbService.collection("profile").doc(userId).set({
-    userId: userId,
-    userName: userName,
-    unit: newUnitName,
+const updateMyProfile = async (dataObject) => {
+  await dbService.doc(`profile/${dataObject.userId}`).set({
+    ...dataObject,
     revisedAt: Date.now(),
   });
 };

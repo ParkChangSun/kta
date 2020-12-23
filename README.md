@@ -6,13 +6,36 @@
 ---
 
 Make community with battle buddies!
+
 This app is initialized by create-react-app.
+
+homepage link : <https://parkchangsun.github.io/kta/>
+
+I always welcome your contributions. Please make issue or pull request, or contact me.
+
+## Readable User Informations
+
+- implemented
+  - name
+  - unit
+  - **friends**
+- unimplemented / in my mind
+  - phone number
+  - katusa / usarmy
+  - birthday / age
+  - date when he joined army
+  - army branch (병과)
+  - school
 
 ## Todo List
 
 - [ ] more refactoring
 - [ ] more css
 - [ ] refine initializing app and auth
+- [ ] add css to App.js Profileform.js
+- [ ] new feature chatting
+- [ ] chat load via scrolling
+- [x] change updatemyprofile arguments to object
 - [x] seperate css
 - [x] seperate utils to hooks and services
 - [ ] merge otherprofile and myprofile(?)

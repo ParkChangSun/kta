@@ -4,7 +4,7 @@ import { updateMyProfile, UserIdContext } from "services/firestore";
 
 const ProfileForm = () => {
   const userContext = useContext(UserIdContext);
-  const [newDisplayName, setNewDisplayName] = useState(userContext.userName);
+  const [newUserName, setNewUserName] = useState(userContext.userName);
   const [newUnitName, setNewUnitName] = useState(userContext.unit);
 
   const onChange = (event) => {
@@ -12,7 +12,7 @@ const ProfileForm = () => {
       target: { name, value },
     } = event;
     if (name === "name") {
-      setNewDisplayName(value);
+      setNewUserName(value);
     } else if (name === "unit") {
       setNewUnitName(value);
     }
@@ -20,7 +20,12 @@ const ProfileForm = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    updateMyProfile(userContext.userId, userContext.userName, newUnitName);
+    const myDataObject = {
+      userId: userContext.userId,
+      userName: newUserName,
+      unit: newUnitName,
+    };
+    updateMyProfile(myDataObject);
   };
 
   useEffect(() => {
@@ -38,7 +43,7 @@ const ProfileForm = () => {
         type="text"
         name="name"
         placeholder="name"
-        value={newDisplayName}
+        value={newUserName}
         onChange={onChange}
       />
       <input

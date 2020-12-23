@@ -23,6 +23,9 @@ const Navigation = ({ setIsLoggedIn }) => {
           <Link to="/myprofile">{userContext?.userName}</Link>
         </li>
         <li>
+          <Link to="/openchat">Openchat</Link>
+        </li>
+        <li>
           <button onClick={onClick}>Sign out</button>
         </li>
       </ul>

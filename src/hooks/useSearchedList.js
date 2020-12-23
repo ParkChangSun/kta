@@ -1,3 +1,5 @@
+import SmallProfile from "components/SmallProfile/SmallProfile";
+
 const { useState } = require("react");
 
 const useSearchedList = () => {
