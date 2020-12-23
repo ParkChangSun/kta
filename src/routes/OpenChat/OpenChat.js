@@ -33,7 +33,7 @@ const OpenChat = () => {
   }, []);
   return (
     <>
-      <ul>{chatList}</ul>
+      <ul className={chatlist}>{chatList}</ul>
       <form onSubmit={onSubmit}>
         <input type="text" value={data} onChange={onChange} />
         <input type="submit" value="chat" />
