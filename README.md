@@ -13,6 +13,13 @@ homepage link : <https://parkchangsun.github.io/kta/>
 
 I always welcome your contributions. Please make issue or pull request, or contact me.
 
+## Features
+
+- Search a user and informations about him
+- Open chatting
+- Type your informations and let other users find you
+- Add friend other users
+
 ## Readable User Informations
 
 - implemented
@@ -23,32 +30,29 @@ I always welcome your contributions. Please make issue or pull request, or conta
   - phone number
   - katusa / usarmy
   - birthday / age
-  - date when he joined army
+  - enroll / ets date
   - army branch (병과)
   - school
 
 ## Todo List
 
-- [ ] more refactoring
-- [ ] more css
+Major features
+
+- [ ] merge otherprofile and myprofile(?)
 - [ ] refine initializing app and auth
-- [ ] add css to App.js Profileform.js
-- [x] new feature chatting
 - [ ] chat load via scrolling
 - [ ] dec order chat
-- [x] change updatemyprofile arguments to object
-- [x] seperate css
-- [x] seperate utils to hooks and services
-- [ ] merge otherprofile and myprofile(?)
-- [x] remove 'add friend'button if it is current user
-- [x] decorate with text
+
+Minor features / design
+
+- [ ] more refactoring
+- [ ] more css
+- [ ] add css to App.js Profileform.js
 - [ ] import loading component to fetching functions
-- [x] footer
-- [ ] more user informations
-- [x] useContext to user object
-- [x] fix user initializing and refresher
-- [x] remove setSmallProfileList from deps of useeffect(otherprofile.js and firestore.js)
-- [x] ProfileForm : get information from firebase
+
+## Contributers
+
+[ParkChangsun](https://github.com/ParkChangSun)
 
 ## License
 

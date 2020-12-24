@@ -45,6 +45,7 @@ const OpenChat = () => {
           type="text"
           value={data}
           onChange={onChange}
+          placeholder="enter message here..."
           className="chatinput"
         />
         <input type="submit" value="chat" />
