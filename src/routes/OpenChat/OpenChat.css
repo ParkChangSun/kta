@@ -1,3 +1,23 @@
+.openchat {
+  width: 90%;
+  background-color: cornsilk;
+}
+
 .chatlist {
-  text-decoration: none;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  border: 5px dotted darkcyan;
+}
+
+p {
+  margin: 0;
+}
+
+.meta {
+  font-size: 0.5rem;
+}
+
+.chatinput {
+  width: 80%;
 }

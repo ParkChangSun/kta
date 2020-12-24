@@ -33,8 +33,9 @@ I always welcome your contributions. Please make issue or pull request, or conta
 - [ ] more css
 - [ ] refine initializing app and auth
 - [ ] add css to App.js Profileform.js
-- [ ] new feature chatting
+- [x] new feature chatting
 - [ ] chat load via scrolling
+- [ ] dec order chat
 - [x] change updatemyprofile arguments to object
 - [x] seperate css
 - [x] seperate utils to hooks and services
