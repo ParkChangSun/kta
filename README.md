@@ -40,15 +40,17 @@ Major features
 
 - [ ] merge otherprofile and myprofile(?)
 - [ ] refine initializing app and auth
-- [ ] chat load via scrolling
-- [ ] dec order chat
+- [ ] add onsnapshot when new chat is made
+- [x] chat load via scrolling
+- [x] dec order chat
 
 Minor features / design
 
+- [ ] refactor, style openchat
+- [ ] add Profileform.js
+- [ ] apply loading component to fetching functions
 - [ ] more refactoring
 - [ ] more css
-- [ ] add css to App.js Profileform.js
-- [ ] import loading component to fetching functions
 
 ## Contributers
 

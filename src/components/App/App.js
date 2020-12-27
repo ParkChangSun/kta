@@ -1,8 +1,9 @@
 import { authService, dbService } from "mybase";
 import React, { useEffect, useState } from "react";
 import { UserIdContext } from "services/firestore";
-import AppRouter from "./AppRouter";
-import Loading from "./Loading/Loading";
+import AppRouter from "../AppRouter";
+import Loading from "../Loading/Loading";
+import "./App.css";
 
 function App() {
   const [init, setInit] = useState(false);

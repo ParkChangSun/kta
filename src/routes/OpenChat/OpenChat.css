@@ -1,6 +1,9 @@
 .openchat {
   width: 90%;
   background-color: cornsilk;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
 }
 
 .chatlist {
@@ -8,6 +11,12 @@
   list-style-type: none;
   margin: 0;
   border: 5px dotted darkcyan;
+  overflow: scroll;
+}
+
+.chatmessage {
+  border-radius: 1rem;
+  border: blue solid 1px;
 }
 
 p {
