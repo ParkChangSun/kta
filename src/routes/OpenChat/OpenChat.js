@@ -53,6 +53,9 @@ const OpenChat = () => {
         }
         setHead(snapshot.docs[0]);
         setChatList((prev) => {
+          const scroll = document.querySelector(".chatlist");
+          scroll.scrollTop = scroll.scrollTop + 10;
+          //wow this works?!?!?!?
           return makeLoadedChatList(snapshot.docs).concat(prev);
         });
       });
@@ -70,6 +73,26 @@ const OpenChat = () => {
       const scroll = document.querySelector(".chatlist");
       scroll.scrollTop = scroll.scrollHeight - scroll.clientHeight;
     });
+  }, []);
+
+  useEffect(() => {
+    const unSubscribe = dbService
+      .collection("chat")
+      .orderBy("timestamp", "asc")
+      .onSnapshot((snapshot) => {
+        const lastItem = snapshot.docs.pop();
+        setChatList((prev) => {
+          const chat = (
+            <li key={lastItem.data().timestamp} className="chatmessage">
+              <p className="meta">{lastItem.data().dateString}</p>
+              <p className="meta">{lastItem.data().userName}'s message</p>
+              <p className="data">{lastItem.data().data}</p>
+            </li>
+          );
+          return prev.concat([chat]);
+        });
+      });
+    return unSubscribe;
   }, []);
 
   return (

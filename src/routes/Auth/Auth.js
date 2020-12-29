@@ -1,5 +1,4 @@
 import { authService, dbService, firebaseInstance } from "mybase";
-import React from "react";
 import { updateMyProfile } from "services/firestore";
 import "./Auth.css";
 
@@ -15,6 +14,7 @@ const Auth = () => {
         userId: credential.user.uid,
         userName: credential.user.displayName,
         unit: "",
+        armyBranch: "",
       };
       updateMyProfile(myDataObject);
     }

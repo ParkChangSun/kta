@@ -14,9 +14,15 @@
   overflow: scroll;
 }
 
+.chatlist li:nth-child(odd) {
+  border: 3px solid blue;
+}
+.chatlist li:nth-child(even) {
+  border: 3px solid red;
+}
+
 .chatmessage {
   border-radius: 1rem;
-  border: blue solid 1px;
 }
 
 p {

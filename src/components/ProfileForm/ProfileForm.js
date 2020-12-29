@@ -1,11 +1,11 @@
-import { dbService } from "mybase";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { updateMyProfile, UserIdContext } from "services/firestore";
 
 const ProfileForm = () => {
   const userContext = useContext(UserIdContext);
   const [newUserName, setNewUserName] = useState(userContext.userName);
   const [newUnitName, setNewUnitName] = useState(userContext.unit);
+  const [newBranch, setNewBranch] = useState(userContext.branch);
 
   const onChange = (event) => {
     const {
@@ -15,6 +15,8 @@ const ProfileForm = () => {
       setNewUserName(value);
     } else if (name === "unit") {
       setNewUnitName(value);
+    } else if (name === "branch") {
+      setNewBranch(value);
     }
   };
 
@@ -24,18 +26,10 @@ const ProfileForm = () => {
       userId: userContext.userId,
       userName: newUserName,
       unit: newUnitName,
+      branch: newBranch,
     };
     updateMyProfile(myDataObject);
   };
-
-  useEffect(() => {
-    const unSubscribe = dbService
-      .doc(`profile/${userContext.userId}`)
-      .onSnapshot((snapShot) => {
-        setNewUnitName(snapShot.data()?.unit);
-      });
-    return unSubscribe;
-  }, [userContext]);
 
   return (
     <form onSubmit={onSubmit}>
@@ -51,6 +45,13 @@ const ProfileForm = () => {
         placeholder="unit that you belong to"
         name="unit"
         value={newUnitName || ""}
+        onChange={onChange}
+      />
+      <input
+        type="text"
+        placeholder="branch"
+        name="branch"
+        value={newBranch || ""}
         onChange={onChange}
       />
       <input type="submit" value="update profile" />
