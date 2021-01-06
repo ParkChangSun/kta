@@ -5,12 +5,10 @@
 
 ---
 
-Make community with battle buddies!
-
-This app is initialized by create-react-app.
-
-homepage link : <https://parkchangsun.github.io/kta/>
-
+Make community with battle buddies!  
+This app is initialized by create-react-app.  
+homepage link : <https://parkchangsun.github.io/kta/>  
+Do you have ideas for this app? Any ideas are okay!  
 I always welcome your contributions. Please make issue or pull request, or contact me.
 
 ## Features
@@ -20,7 +18,9 @@ I always welcome your contributions. Please make issue or pull request, or conta
 - Type your informations and let other users find you
 - Add friend other users
 
-> Search function query `where(field === input)` '2' cannot search '2-20'
+## Limitations
+
+- Search function query `where(field === input)` '2' cannot search '2-20'
 
 ## Readable User Informations
 
@@ -35,6 +35,7 @@ I always welcome your contributions. Please make issue or pull request, or conta
   - birthday / age
   - enroll / ets date
   - school
+  - profile status message
 
 ## Todo List
 

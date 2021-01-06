@@ -1,5 +1,4 @@
 .openchat {
-  width: 90%;
   background-color: cornsilk;
   height: 60%;
   display: flex;
@@ -23,6 +22,7 @@
 
 .chatmessage {
   border-radius: 1rem;
+  padding: 0.1rem;
 }
 
 p {
@@ -33,6 +33,11 @@ p {
   font-size: 0.5rem;
 }
 
+.chatform {
+  width: 100%;
+  display: flex;
+}
+
 .chatinput {
-  width: 80%;
+  flex: 1;
 }
